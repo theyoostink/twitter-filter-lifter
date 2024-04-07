@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Filter Lifter</title>
+	<style type="text/css">
+		html {
+			width: 300px;
+			background-color: rgb(21, 32, 43);
+			color: white;
+			text-align: center;
+			font-family: sans-serif;
+		}
+		#lift-filters-button {
+			background-color: rgb(47, 62, 79);
+			border: none;
+			border-radius: 15px;
+			padding: 25px;
+			color: white;
+			font-size: 18px;
+		}
+		#lift-filters-button:hover {
+			background-color: rgb(35, 45, 55);
+		}
+		#lift-filters-button:disabled,#lift-filters-button[disabled] {
+			background-color: rgb(35, 45, 55);
+		}
+		a {
+			color: rgb(29, 155, 240);
+		}
+	</style>
+</head>
+<body>
+	<a href="https://github.com/theyoostink/twitter-filter-lifter" target="_blank">More info on this extension</a>
+	<h1>Lift the Twitter Sensitive Content Filters</h1>
+	<p>This extension only works on the Media tab of a Twitter user's profile. The extension is disabled when used on another site or URL. When a thumbnail is scrolled off screen, then the filter will be reapplied when scrolled back into view. Make sure the page is more than 616px wide.</p>
+	<button id="lift-filters-button">Lift All Filters in View</button>
+	<script type="module" src="popup.js"></script>
+</body>
+</html>
