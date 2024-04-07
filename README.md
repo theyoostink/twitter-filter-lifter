@@ -22,3 +22,4 @@ There are currently no plans to publish this extension to the Google Web Store.
 ## Changelog
 
 - v1.0 [2024-04-07]: The first version
+- v1.1 [2024-04-07]: Automatically lift the filters every half second when triggered
