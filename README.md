@@ -13,7 +13,7 @@
 
 ## About the Extension
 
-This extension only clicks on the specific "Show" span within a specific div in the Media tab of Twitter profiles using JavaScript. It only looks at the active tab in the current browser window and checks the URL to make sure the button is only enabled on the Media tab of Twitter profiles.
+This extension only clicks on the specific "Show" span within a specific div in the Media tab of Twitter profiles using JavaScript. It only looks at the active tab in the current browser window and checks the URL to make sure the button is only enabled on the Media tab of Twitter profiles. Make sure the page is wider than 616px. That's just the number. I don't know why. It is what it is.
 
 If you encounter a bug or would like to request changes, please contact Yoostink.
 
@@ -23,3 +23,4 @@ There are currently no plans to publish this extension to the Google Web Store.
 
 - v1.0 [2024-04-07]: The first version
 - v1.1 [2024-04-07]: Automatically lift the filters every half second when triggered
+	- v1.1.1 [2024-04-07]: Minor text adjustments and code fixes
