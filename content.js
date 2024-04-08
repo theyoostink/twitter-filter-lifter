@@ -1,7 +1,12 @@
+var lift_filters_enabled = false;
+
 chrome.runtime.onMessage.addListener(function(request, sender, response) {
 	if (request.message == "lift filters") {
 		var interval = 1000 * 0.5;
-		setInterval(liftFilters, interval);
+		if (!lift_filters_enabled) {
+			setInterval(liftFilters, interval);
+			lift_filters_enabled = true;
+		}
 	}
 });
 
