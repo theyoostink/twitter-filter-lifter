@@ -17,4 +17,10 @@ function liftFilters() {
 	).forEach(function (currentValue, currentIndex, listObj) {
 		currentValue.click();
 	});
+
+	document.querySelectorAll(
+		"div.css-175oi2r.r-1kihuf0.r-1e081e0 > div[role=button]"
+	).forEach(function (currentValue, currentIndex, listObj) {
+		currentValue.click();
+	});
 }

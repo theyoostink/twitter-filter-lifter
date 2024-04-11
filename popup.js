@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 		// Disable the button if not in a URL that is the Media tab on a Twitter profile
 		var tabURL = tabs[0].url;
-		if (tabURL && ((tabURL.includes("twitter.com") || tabURL.includes("x.com")) && tabURL.includes("/media"))) {
+		if (tabURL && ((tabURL.includes("twitter.com") || tabURL.includes("x.com")) && (tabURL.includes("/media") || tabURL.includes("/home")))) {
 			document.getElementById("lift-filters-button").disabled = false;
 			document.getElementById("lift-filters-button").innerHTML = "Lift All Filters in View";
 		}
