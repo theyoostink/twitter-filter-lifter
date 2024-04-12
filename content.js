@@ -1,6 +1,13 @@
 onload = function() {
-	chrome.storage.sync.get("lift_filters_enabled", function(res) {
+	pageLoadCheck()
+};
 
+window.navigation.addEventListener("navigate", function(event) {
+	pageLoadCheck();
+});
+
+function pageLoadCheck() {
+	chrome.storage.sync.get("lift_filters_enabled", function(res) {
 		// On first load, set the state to enabled and trigger the lift filters
 		if (!("lift_filters_enabled" in res)) {
 			chrome.storage.sync.set({"lift_filters_enabled": true});
@@ -14,7 +21,7 @@ onload = function() {
 			}
 		}
 	});
-};
+}
 
 chrome.runtime.onMessage.addListener(function(request, sender, response) {
 	if (request.message == "toggle lift filters") {
@@ -54,7 +61,9 @@ function liftFilters() {
 	document.querySelectorAll(
 		"div.css-1rynq56.r-bcqeeo.r-qvutc0.r-37j5jr.r-a023e6.r-rjixqe.r-16dba41.r-1loqt21 > span.css-1qaijid.r-bcqeeo.r-qvutc0.r-poiln3"
 	).forEach(function (currentValue, currentIndex, listObj) {
-		currentValue.click();
+		if (currentValue.innerHTML == "Show") {
+			currentValue.click();
+		}
 	});
 
 	// HOME FEED
@@ -62,6 +71,8 @@ function liftFilters() {
 	document.querySelectorAll(
 		"div.css-175oi2r.r-1kihuf0.r-1e081e0 > div[role=button]"
 	).forEach(function (currentValue, currentIndex, listObj) {
-		currentValue.click();
+		if (currentValue.innerHTML == "Show") {
+			currentValue.click();
+		}
 	});
 }

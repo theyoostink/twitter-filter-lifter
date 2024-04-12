@@ -26,3 +26,4 @@ There are currently no plans to publish this extension to the Google Web Store.
 	- v1.1.1 [2024-04-07]: Minor text adjustments and code fixes
 - v1.2 [2024-04-11]: Lift filters in the home feed as well
 - v1.3 [2024-04-11]: Lift filters automatically and the button is now a toggle
+	- v1.3.1 [2024-04-11]: Fixing a bug by specifying text = Show and triggering between pages
