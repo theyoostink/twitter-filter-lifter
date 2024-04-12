@@ -1,20 +1,32 @@
-document.addEventListener("DOMContentLoaded", function() {
+onload = function() {
+	// Update the toggle button based on the current state
+	chrome.storage.sync.get("lift_filters_enabled", function(res) {
+		updateToggleButton(res["lift_filters_enabled"]);
+	});
+};
+
+// Toggle the state
+document.getElementById("lift-filters-button").addEventListener("click", function() {
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-		// Disable the button if not in a URL that is the Media tab on a Twitter profile
-		var tabURL = tabs[0].url;
-		if (tabURL && ((tabURL.includes("twitter.com") || tabURL.includes("x.com")) && (tabURL.includes("/media") || tabURL.includes("/home")))) {
-			document.getElementById("lift-filters-button").disabled = false;
-			document.getElementById("lift-filters-button").innerHTML = "Lift All Filters in View";
-		}
-		else {
-			document.getElementById("lift-filters-button").disabled = true;
-			document.getElementById("lift-filters-button").innerHTML = "DISABLED";
-		}
+		chrome.tabs.sendMessage(tabs[0].id, { message: "toggle lift filters" });
 	});
 });
 
-document.getElementById("lift-filters-button").addEventListener("click", function() {
-	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-		chrome.tabs.sendMessage(tabs[0].id, { message: "lift filters" });
-	});
+chrome.runtime.onMessage.addListener(function(request, sender, response) {
+	// Update the toggle button text based on the current state
+	if (request.message == "update toggle popup") {
+		chrome.storage.sync.get("lift_filters_enabled", function(res) {
+			updateToggleButton(res["lift_filters_enabled"]);
+		});
+	}
 });
+
+function updateToggleButton(enabled) {
+	var button = document.getElementById("lift-filters-button");
+	if (enabled) {
+		button.innerHTML = "ENABLED";
+	}
+	else {
+		button.innerHTML = "DISABLED";
+	}
+}

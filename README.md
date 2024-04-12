@@ -25,3 +25,4 @@ There are currently no plans to publish this extension to the Google Web Store.
 - v1.1 [2024-04-07]: Automatically lift the filters every half second when triggered
 	- v1.1.1 [2024-04-07]: Minor text adjustments and code fixes
 - v1.2 [2024-04-11]: Lift filters in the home feed as well
+- v1.3 [2024-04-11]: Lift filters automatically and the button is now a toggle
